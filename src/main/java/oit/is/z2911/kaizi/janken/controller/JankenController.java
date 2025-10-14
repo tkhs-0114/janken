@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class JankenController {
 
+  @GetMapping("/janken")
+  public String janekn() {
+    return "janken.html";
+  }
+
   @GetMapping("/jankengame")
   public String sample23(@RequestParam String hand, ModelMap model) {
     String hands[] = { "Gu", "Ch", "Pa" };
