@@ -9,15 +9,21 @@
 <body>
   <a href="/logout">ログアウト</a>
   <h1>Janken GAME!</h1>
-  <p>ユーザ一覧</p>
+  <h2>ユーザ一覧</h2>
   <li th:each="user : ${users}"><a th:href="@{/match(id=${user.id})}"> [[${user.userName}]]</a></li>
-  <p>結果一覧</p>
-  <table th:each="match: ${matches}">
+  <h2>結果一覧</h2>
+  <table style="border-collapse: collapse;">
     <tr>
-      <td style=" border: 1px solid black;">[[${match.id}]]</td>
-      <td style=" border: 1px solid black;">[[${match.user1}]] VS [[${match.user2}]]</td>
-      <td style=" border: 1px solid black;">ユーザ1の手:[[${match.user1Hand}]]</td>
-      <td style=" border: 1px solid black;">ユーザ2の手:[[${match.user2Hand}]]</td>
+      <th style="border: 1px solid black; padding: 8px;">ID</th>
+      <th style="border: 1px solid black; padding: 8px;">対戦</th>
+      <th style="border: 1px solid black; padding: 8px;">ユーザ1の手</th>
+      <th style="border: 1px solid black; padding: 8px;">ユーザ2の手</th>
+    </tr>
+    <tr th:each="match: ${matches}">
+      <td style="border: 1px solid black; padding: 8px;">[[${match.id}]]</td>
+      <td style="border: 1px solid black; padding: 8px;">[[${match.user1}]] VS [[${match.user2}]]</td>
+      <td style="border: 1px solid black; padding: 8px;">[[${match.user1Hand}]]</td>
+      <td style="border: 1px solid black; padding: 8px;">[[${match.user2Hand}]]</td>
     </tr>
   </table>
 </body>
