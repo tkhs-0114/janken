@@ -11,9 +11,12 @@
   <h1>Janken GAME!</h1>
   <p><span th:text="${#authentication.name}"></span> VS <span th:if="${user2}">[[${user2.userName}]]</span></p>
   <div>
-    <a th:href="@{/matched(user1Name=${#authentication.name}, user2=${user2.id}, hand='Gu')}">ぐー</a>
+    <a th:href="@{/fight(id=${user2Id}, hand='Gu')}">ぐー</a>
+    <a th:href="@{/fight(id=${user2Id}, hand='Choki')}">ちょき</a>
+    <a th:href="@{/fight(id=${user2Id}, hand='Pa')}">ぱー</a>
+    <!-- <a th:href="@{/matched(user1Name=${#authentication.name}, user2=${user2.id}, hand='Gu')}">ぐー</a>
     <a th:href="@{/matched(user1Name=${#authentication.name}, user2=${user2.id}, hand='Choki')}">ちょき</a>
-    <a th:href="@{/matched(user1Name=${#authentication.name}, user2=${user2.id}, hand='Pa')}">ぱー</a>
+    <a th:href="@{/matched(user1Name=${#authentication.name}, user2=${user2.id}, hand='Pa')}">ぱー</a> -->
   </div>
   <div th:if="${yourHand}">
     <p>あなたの手 [[${yourHand}]]</p>

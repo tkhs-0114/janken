@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Janken</title>
+  <script>
+    window.onload = function () {
+
+      var sse = new EventSource('/result?id=[[${id}]]');
+      sse.onmessage = function (event) {
+        console.log(event.data);
+        document.getElementById("p1").textContent = event.data;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>相手を待っています</h1>
+  <p>HI <span>[[${user1.userName}]]</span></p>
+  <h2>結果</h2>
+  <p id="p1"></p>
+</body>
+
+</html>
