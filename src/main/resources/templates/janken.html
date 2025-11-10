@@ -11,6 +11,17 @@
   <h1>Janken GAME!</h1>
   <h2>ユーザ一覧</h2>
   <li th:each="user : ${users}"><a th:href="@{/match(id=${user.id})}"> [[${user.userName}]]</a></li>
+  <h2>アクティブな試合</h2>
+  <table style="border-collapse: collapse;">
+    <tr>
+      <th style="border: 1px solid black; padding: 8px;">ID</th>
+      <th style="border: 1px solid black; padding: 8px;">対戦</th>
+    </tr>
+    <tr th:each="matchinfo: ${matchinfos}">
+      <td style="border: 1px solid black; padding: 8px;">[[${matchinfo.id}]]</td>
+      <td style="border: 1px solid black; padding: 8px;">[[${matchinfo.user1}]] VS [[${matchinfo.user2}]]</td>
+    </tr>
+  </table>
   <h2>結果一覧</h2>
   <table style="border-collapse: collapse;">
     <tr>
